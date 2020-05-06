@@ -143,27 +143,45 @@ function makeArticle(
 ) {
   //define new elements
 
-  const article = document.createElement("div");
-  const title = document.createElement("h2");
-  const date = document.createElement("p");
-  const oneParag = document.createElement("p");
-  const twoParag = document.createElement("p");
-  const threeParag = document.createElement("p");
-  const expandBtn = document.createElement("span");
+  const articleDiv = document.createElement("div");
+  const articleTitle = document.createElement("h2");
+  const articleDate = document.createElement("p");
+  const articleFirstParagraph = document.createElement("p");
+  const articleSecondParagraph = document.createElement("p");
+  const articleThirdParagraph = document.createElement("p");
+  const btn = document.createElement("span");
 
   //append to set structure of article
 
   article.appendChild(
-    makeArticle(title, date, firstParagraph, secondParagraph, thirdParagraph)
+    makeArticle(
+      articleTitle,
+      articleDate,
+      articleFirstParagraph,
+      articleSecondParagraph,
+      articleThirdParagraph,
+      btn
+    )
   );
 
   //set class names
 
-  article.classList.add("article");
+  articleDiv.classList.add("article");
   date.classList.add("date");
   expandBtn.classList.add("expandButton");
 
   //text content
 
+  articleTitle.textContent = title;
+  articleDate.textContent = date;
+  articleFirstParagraph = firstParagraph;
+  articleSecondParagraph.textContent = secondParagraph;
+  articleThirdParagraph.textContent = thirdParagraph;
+  btn.textContent = "Read on!";
+
   //span event
+  btn.addEventListener("click", () => {
+    articleDiv.classList.toggle("article-open");
+  });
+  return articleDiv;
 }
