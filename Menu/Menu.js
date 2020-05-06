@@ -38,7 +38,6 @@ let menuItems = [
 
 const headerParent = document.querySelector(".header");
 
-
 function createMenu(arr) {
   const menuDiv = document.createElement("div");
   menuDiv.classList.add("menu");
@@ -51,5 +50,21 @@ function createMenu(arr) {
     return mItem;
   }
 
-  arr.map(createLi).forEach(item => uList.appendChild(item));
-  menuDiv.append(uList); //define
+  //define elements
+  arr.map(createLi).forEach((item) => uList.appendChild(item));
+  menuDiv.append(uList);
+
+  //menu button
+
+  const menuButton = document.querySelector(".menu-button");
+
+  menuButton.addEventListener("click", () => {
+    menuDiv.classList.toggle("menu--open");
+  });
+
+  return menuDiv;
+}
+
+const menuMain = createMenu(menuItems);
+
+headerParent.prepend(menuMain);
