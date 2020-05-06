@@ -115,6 +115,25 @@ const data = [
 
 */
 
+//create function
+function makeArticle(articleAttrs) {
+  const {
+    title,
+    date,
+    firstParagraph,
+    secondParagraph,
+    thirdParagraph,
+  } = articleAttrs;
+
+  const article = document.createElement("div");
+  const title = document.createElement("h2");
+  const date = document.createElement("p");
+  const oneParag = document.createElement("p");
+  const twoParag = document.createElement("p");
+  const threeParag = document.createElement("p");
+  const expandBtn = document.createElement("span");
+}
+
 //create parent element
 
 //map over area
