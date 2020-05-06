@@ -46,3 +46,17 @@ const createMenu = (menu) => {
     menuLI.textContent = element;
   });
 
+  //menubutton
+
+  menuDiv.classList.add("menu");
+
+  const menuButton = document.querySelector(".menu-button");
+  menuButton.addEventListener("click", () => {
+    menuDiv.classList.toggle("menu--open");
+  });
+
+  return menuDiv;
+};
+
+const header = document.querySelector(".header");
+header.appendChild(createMenu(menuItems));
