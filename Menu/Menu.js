@@ -36,11 +36,20 @@ let menuItems = [
 
 //parent element
 
-//.menuitems.foreach array=>
-//headerParent.prepend (createMenu[array]);
+const headerParent = document.querySelector(".header");
 
-//prepend to parent
 
-//set structure
+function createMenu(arr) {
+  const menuDiv = document.createElement("div");
+  menuDiv.classList.add("menu");
 
-//class names
+  const uList = document.createElement("ul");
+
+  function createLi(i) {
+    const mItem = document.createElement("li");
+    mItem.textContent = i;
+    return mItem;
+  }
+
+  arr.map(createLi).forEach(item => uList.appendChild(item));
+  menuDiv.append(uList); //define
