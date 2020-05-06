@@ -115,15 +115,33 @@ const data = [
 
 */
 
+//parent element
+
+const parentArticlesDiv = document.querySelector(".articles");
+
+//map over area
+
+data.map((element) => {
+  parentArticlesDiv.appendChild(
+    makeArticle(
+      element.title,
+      element.date,
+      element.firstParagraph,
+      element.secondParagraph,
+      element.thirdParagraph
+    )
+  );
+});
+
 //create function
-function makeArticle(articleAttrs) {
-  const {
-    title,
-    date,
-    firstParagraph,
-    secondParagraph,
-    thirdParagraph,
-  } = articleAttrs;
+function makeArticle(
+  title,
+  date,
+  firstParagraph,
+  secondParagraph,
+  thirdParagraph
+) {
+  //define new elements
 
   const article = document.createElement("div");
   const title = document.createElement("h2");
@@ -132,18 +150,20 @@ function makeArticle(articleAttrs) {
   const twoParag = document.createElement("p");
   const threeParag = document.createElement("p");
   const expandBtn = document.createElement("span");
+
+  //append to set structure of article
+
+  article.appendChild(
+    makeArticle(title, date, firstParagraph, secondParagraph, thirdParagraph)
+  );
+
+  //set class names
+
+  article.classList.add("article");
+  date.classList.add("date");
+  expandBtn.classList.add("expandButton");
+
+  //text content
+
+  //span event
 }
-
-//create parent element
-
-//map over area
-
-//define new elements
-
-//set up structure
-
-//set class names
-
-//text content
-
-//span event
